@@ -5,15 +5,16 @@ class Drawer: public srs::Simulation
 {
     public:
 
-        Drawer() {}
-        ~Drawer() {}
+        Drawer(unsigned int width, unsigned int heigth, const char* title)
+                : Simulation(width, heigth, title)
+        {}
 
-        void update() override
+        void update()
         {
             //
         }
 
-        void render() override
+        void render()
         {
             //
         }
@@ -21,5 +22,5 @@ class Drawer: public srs::Simulation
 
 srs::Simulation* srs::createSimulation()
 {
-    return new Drawer();
+    return new Drawer(1024, 576, "Title");
 }

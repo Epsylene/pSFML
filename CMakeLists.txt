@@ -10,7 +10,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 include_directories(SFML/include)
 include_directories(include)
 
-add_library(Sirius SHARED include/Sirius/EntryPoint.h src/Sirius/Simulation.cpp include/Sirius/Simulation.h include/Sirius.h)
+add_library(Sirius SHARED include/Sirius/EntryPoint.h src/Sirius/Simulation.cpp include/Sirius/Simulation.h include/Sirius.h src/Sirius/Window.cpp include/Sirius/Window.h)
 
 set(CMAKE_PREFIX_PATH "vendor/SFML/lib/cmake/SFML/")
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
@@ -23,4 +23,4 @@ add_custom_command(
         TARGET Sirius POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/vendor/SFML/bin/
-        ${CMAKE_CURRENT_BINARY_DIR})
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

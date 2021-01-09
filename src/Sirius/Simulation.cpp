@@ -4,9 +4,8 @@
 namespace srs
 {
     Simulation::Simulation(unsigned int width, unsigned int heigth,
-                           const char* title): simWindow(width, heigth, title)
+                           const char* title): d(width, heigth, title)
     {
-
     }
 
     Simulation::~Simulation()
@@ -16,13 +15,13 @@ namespace srs
 
     void Simulation::run()
     {
-        while (simWindow.isOpen())
+        while (d.simWindow.isOpen())
         {
             //------- Update -------
 
-            while (simWindow.pollEvent())
+            while (d.simWindow.pollEvent())
             {
-                simWindow.eventClosed(); //Checks whether a "close window"
+                d.simWindow.eventClosed(); //Checks whether a "close window"
                                          // event has been triggered
             }
 
@@ -30,11 +29,11 @@ namespace srs
 
             //------- Render -------
 
-            simWindow.clear();
+            d.simWindow.clear(sf::Color::White);
 
             render();
 
-            simWindow.display();
+            d.simWindow.display();
         }
     }
 }

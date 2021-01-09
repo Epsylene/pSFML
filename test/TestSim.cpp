@@ -1,11 +1,11 @@
 
 #include "Sirius.h"
 
-class Drawer: public srs::Simulation
+class TestSim: public srs::Simulation
 {
     public:
 
-        Drawer(unsigned int width, unsigned int heigth, const char* title)
+        TestSim(unsigned int width, unsigned int heigth, const char* title)
                 : Simulation(width, heigth, title)
         {}
 
@@ -16,11 +16,11 @@ class Drawer: public srs::Simulation
 
         void render()
         {
-            //
+            d.drawRectangle(300, 200, 150, 100);
         }
 };
 
 srs::Simulation* srs::createSimulation()
 {
-    return new Drawer(1024, 576, "Title");
+    return new TestSim(1024, 576, "Title");
 }

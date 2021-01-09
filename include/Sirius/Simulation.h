@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Sirius/Window.h"
+#include "Sirius/Drawer.h"
 
 namespace srs
 {
@@ -12,13 +12,15 @@ namespace srs
             virtual void update() = 0;
             virtual void render() = 0;
 
-            Window simWindow;
+        protected:
+
+            Drawer d;
 
         public:
 
             Simulation() = default;
             Simulation(unsigned int width, unsigned int heigth, const char* title);
-            ~Simulation();
+            virtual ~Simulation();
 
             void run();
     };

@@ -29,13 +29,18 @@ namespace srs
         return false;
     }
 
-    void Window::clear()
+    void Window::clear(const sf::Color& color)
     {
-        window.clear();
+        window.clear(color);
     }
 
     void Window::display()
     {
         window.display();
+    }
+
+    void Window::draw(sf::Drawable& shape)
+    {
+        window.draw(shape);
     }
 }

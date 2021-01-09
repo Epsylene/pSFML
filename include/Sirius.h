@@ -4,6 +4,7 @@
 
 #include "Sirius/Simulation.h"
 #include "Sirius/Window.h"
+#include "Sirius/Drawer.h"
 
 /////// ENTRY POINT //////////
 #include "Sirius/EntryPoint.h"

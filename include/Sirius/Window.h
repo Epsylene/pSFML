@@ -10,12 +10,11 @@ namespace srs
         private:
 
             sf::RenderWindow window;
-            sf::Event event;
+            sf::Event event {};
 
         public:
 
             Window() = default;
-
             Window(unsigned int width, unsigned int heigth, const char* title):
                 window({width, heigth}, title), event() {}
 
@@ -25,7 +24,8 @@ namespace srs
             bool pollEvent();
             bool eventClosed();
 
-            void clear();
+            void clear(const sf::Color& color = sf::Color(0, 0, 0, 255));
             void display();
+            void draw(sf::Drawable& shape);
     };
 }

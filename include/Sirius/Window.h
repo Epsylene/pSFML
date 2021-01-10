@@ -19,6 +19,8 @@ namespace srs
                 window({width, heigth}, title), event() {}
 
             void create(unsigned int width, unsigned int heigth, const char* title);
+            float getWidth();
+            float getHeight();
 
             bool isOpen();
             bool pollEvent();

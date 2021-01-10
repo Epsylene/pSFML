@@ -43,4 +43,14 @@ namespace srs
     {
         window.draw(shape);
     }
+
+    float Window::getWidth()
+    {
+        return window.getSize().x;
+    }
+
+    float Window::getHeight()
+    {
+        return window.getSize().y;
+    }
 }

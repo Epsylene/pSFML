@@ -16,7 +16,10 @@ class TestSim: public srs::Simulation
 
         void render()
         {
-            drawer.drawRectangle(300, 200, 150, 100);
+            drawer.drawRectangle(5, 5, 100, 100);
+            drawer.drawRectangle(5, -5, 100, -100);
+            drawer.drawRectangle(-5, 5, -100, 100);
+            drawer.drawRectangle(-5, -5, -100, -100);
         }
 };
 

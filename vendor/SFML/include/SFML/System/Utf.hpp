@@ -756,8 +756,8 @@ typedef Utf<32> Utf32;
 /// can use any character / string type for a given encoding.
 ///
 /// It has 3 specializations:
-/// \li sf::Utf<8> (typedef'd to sf::Utf8)
-/// \li sf::Utf<16> (typedef'd to sf::Utf16)
-/// \li sf::Utf<32> (typedef'd to sf::Utf32)
+/// \li sf::Utf<8> (typedef'drawer to sf::Utf8)
+/// \li sf::Utf<16> (typedef'drawer to sf::Utf16)
+/// \li sf::Utf<32> (typedef'drawer to sf::Utf32)
 ///
 ////////////////////////////////////////////////////////////

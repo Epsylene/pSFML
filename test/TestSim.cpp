@@ -16,7 +16,7 @@ class TestSim: public srs::Simulation
 
         void render()
         {
-            d.drawRectangle(300, 200, 150, 100);
+            drawer.drawRectangle(300, 200, 150, 100);
         }
 };
 

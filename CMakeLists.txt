@@ -10,7 +10,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 include_directories(SFML/include)
 include_directories(include)
 
-add_library(Sirius SHARED include/Sirius/EntryPoint.h src/Sirius/Simulation.cpp include/Sirius/Simulation.h include/Sirius.h src/Sirius/Window.cpp include/Sirius/Window.h src/Sirius/Drawer.cpp include/Sirius/Drawer.h)
+add_library(Sirius SHARED include/Sirius/EntryPoint.h src/Sirius/Simulation.cpp include/Sirius/Simulation.h include/Sirius.h src/Sirius/Window.cpp include/Sirius/Window.h src/Sirius/Drawer.cpp include/Sirius/Drawer.h src/Sirius/Utilities/Vector.cpp include/Sirius/Utilities/Vector.h)
 
 set(CMAKE_PREFIX_PATH "vendor/SFML/lib/cmake/SFML/")
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)

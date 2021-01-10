@@ -14,11 +14,10 @@ namespace srs
 
         protected:
 
-            Drawer d;
+            Drawer drawer;
 
         public:
 
-            Simulation() = default;
             Simulation(unsigned int width, unsigned int heigth, const char* title);
             virtual ~Simulation();
 

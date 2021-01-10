@@ -4,7 +4,7 @@
 namespace srs
 {
     Simulation::Simulation(unsigned int width, unsigned int heigth,
-                           const char* title): d(width, heigth, title)
+                           const char* title): drawer(width, heigth, title)
     {
     }
 
@@ -15,13 +15,13 @@ namespace srs
 
     void Simulation::run()
     {
-        while (d.simWindow.isOpen())
+        while (drawer.simWindow.isOpen())
         {
             //------- Update -------
 
-            while (d.simWindow.pollEvent())
+            while (drawer.simWindow.pollEvent())
             {
-                d.simWindow.eventClosed(); //Checks whether a "close window"
+                drawer.simWindow.eventClosed(); //Checks whether a "close window"
                                          // event has been triggered
             }
 
@@ -29,11 +29,11 @@ namespace srs
 
             //------- Render -------
 
-            d.simWindow.clear(sf::Color::White);
+            drawer.simWindow.clear(sf::Color::White);
 
             render();
 
-            d.simWindow.display();
+            drawer.simWindow.display();
         }
     }
 }

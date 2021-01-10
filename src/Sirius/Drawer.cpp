@@ -30,4 +30,9 @@ namespace srs
         c.setFillColor(sf::Color::Black);
         simWindow.draw(c);
     }
+
+    void Drawer::centeredPos(float posX, float posY)
+    {
+
+    }
 }

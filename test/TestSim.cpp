@@ -1,7 +1,7 @@
 
-#include "Sirius.h"
+#include "psfml.h"
 
-class TestSim: public srs::Simulation
+class TestSim: public psf::Simulation
 {
     public:
 
@@ -23,7 +23,7 @@ class TestSim: public srs::Simulation
         }
 };
 
-srs::Simulation* srs::createSimulation()
+psf::Simulation* psf::createSimulation()
 {
     return new TestSim(1024, 576, "Title");
 }

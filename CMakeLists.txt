@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(SiriusEngine)
+project(pSFML)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -10,17 +10,17 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 include_directories(SFML/include)
 include_directories(include)
 
-add_library(Sirius SHARED include/Sirius/EntryPoint.h src/Sirius/Simulation.cpp include/Sirius/Simulation.h include/Sirius.h src/Sirius/Window.cpp include/Sirius/Window.h src/Sirius/Drawer.cpp include/Sirius/Drawer.h src/Sirius/Utilities/Vector.cpp include/Sirius/Utilities/Vector.h)
+add_library(pSFML SHARED include/pSFML/EntryPoint.h src/pSFML/Simulation.cpp include/pSFML/Simulation.h include/psfml.h src/pSFML/Window.cpp include/pSFML/Window.h src/pSFML/Drawer.cpp include/pSFML/Drawer.h src/pSFML/Utilities/Vector.cpp include/pSFML/Utilities/Vector.h)
 
 set(CMAKE_PREFIX_PATH "vendor/SFML/lib/cmake/SFML/")
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
-target_link_libraries(Sirius sfml-graphics sfml-window sfml-system)
+target_link_libraries(pSFML sfml-graphics sfml-window sfml-system)
 
 add_executable(Test test/TestSim.cpp)
-target_link_libraries(Test Sirius)
+target_link_libraries(Test pSFML)
 
 add_custom_command(
-        TARGET Sirius POST_BUILD
+        TARGET pSFML POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/vendor/SFML/bin/
         ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

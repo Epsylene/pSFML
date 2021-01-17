@@ -1,7 +1,7 @@
 
-#include "Sirius/Drawer.h"
+#include "pSFML/Drawer.h"
 
-namespace srs
+namespace psf
 {
     Drawer::Drawer(unsigned int simWindowWidth, unsigned int simWindowHeight,
                    const char* simWindowTitle): simWindow(simWindowWidth, simWindowHeight, simWindowTitle)

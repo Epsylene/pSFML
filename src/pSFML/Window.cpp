@@ -1,7 +1,7 @@
 
-#include "Sirius/Window.h"
+#include "pSFML/Window.h"
 
-namespace srs
+namespace psf
 {
     void Window::create(unsigned int width, unsigned int heigth, const char *title)
     {

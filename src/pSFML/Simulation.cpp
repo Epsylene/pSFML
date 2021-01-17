@@ -1,7 +1,7 @@
 
-#include "Sirius/Simulation.h"
+#include "pSFML/Simulation.h"
 
-namespace srs
+namespace psf
 {
     Simulation::Simulation(unsigned int width, unsigned int heigth,
                            const char* title): drawer(width, heigth, title)

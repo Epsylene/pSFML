@@ -38,6 +38,7 @@ namespace psf
     {
         sf::CircleShape c {radius};
         Vector realPos = computePos(posX, posY);
+        c.setOrigin(radius, radius);
         c.setPosition(realPos.x, realPos.y);
         c.setFillColor(sf::Color::Black);
         simWindow.draw(c);

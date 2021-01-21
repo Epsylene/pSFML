@@ -21,8 +21,7 @@ namespace psf
 
             while (drawer.simWindow.pollEvent())
             {
-                drawer.simWindow.eventClosed(); //Checks whether a "close window"
-                                         // event has been triggered
+                drawer.simWindow.eventClosed();
             }
 
             update();

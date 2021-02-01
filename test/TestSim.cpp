@@ -7,7 +7,9 @@ class TestSim: public psf::Simulation
 
         TestSim(unsigned int width, unsigned int heigth, const char* title)
                 : Simulation(width, heigth, title)
-        {}
+        {
+            //
+        }
 
         void update()
         {

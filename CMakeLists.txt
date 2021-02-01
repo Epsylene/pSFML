@@ -10,7 +10,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 include_directories(SFML/include)
 include_directories(include)
 
-add_library(pSFML SHARED include/pSFML/EntryPoint.h src/pSFML/Simulation.cpp include/pSFML/Simulation.h include/psfml.h src/pSFML/Window.cpp include/pSFML/Window.h src/pSFML/Drawer.cpp include/pSFML/Drawer.h src/pSFML/Utilities/Vector.cpp include/pSFML/Utilities/Vector.h)
+add_library(pSFML SHARED include/pSFML/EntryPoint.h src/pSFML/Simulation.cpp include/pSFML/Simulation.h include/psfml.h src/pSFML/Window.cpp include/pSFML/Window.h src/pSFML/Drawer.cpp include/pSFML/Drawer.h src/pSFML/Utilities/Vector.cpp include/pSFML/Utilities/Vector.h include/psfpch.h)
 
 set(CMAKE_PREFIX_PATH "vendor/SFML/lib/cmake/SFML/")
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
@@ -24,3 +24,5 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/vendor/SFML/bin/
         ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+
+target_precompile_headers(pSFML PUBLIC include/psfpch.h)

@@ -1,96 +1,149 @@
 
 #include "pSFML/Utilities/Vector.h"
 
-Vector::Vector()
+namespace psf
 {
-    this->x = 0.f;
-    this->y = 0.f;
+    Vector::Vector()
+    {
+        this->x = 0.f;
+        this->y = 0.f;
 
-    mag = 0.f;
-    angle = 0.f;
-}
+        mag = 0.f;
+        angle = 0.f;
+    }
 
-Vector::Vector(float x, float y)
-{
-    this->x = x;
-    this->y = y;
+    Vector::Vector(float x, float y)
+    {
+        this->x = x;
+        this->y = y;
 
-    mag = static_cast<float>(std::sqrt(std::pow(x, 2) + std::pow(y, 2)));
-    angle = static_cast<float>(std::atan2(y, x));
-}
+        mag = static_cast<float>(std::sqrt(x * x + y * y));
+        angle = static_cast<float>(std::atan2(y, x));
+    }
 
-Vector::Vector(Vector& vec)
-{
-    x = vec.x;
-    y = vec.y;
+    Vector::Vector(Vector& vec)
+    {
+        x = vec.x;
+        y = vec.y;
 
-    mag = static_cast<float>(std::sqrt(std::pow(x, 2) + std::pow(y, 2)));
-    angle = static_cast<float>(std::atan2(y, x));
-}
+        mag = static_cast<float>(std::sqrt(x * x + y * y));
+        angle = static_cast<float>(std::atan2(y, x));
+    }
 
-Vector::Vector(sf::Vector2f vec)
-{
-    x = vec.x;
-    y = vec.y;
+    Vector::Vector(sf::Vector2f vec)
+    {
+        x = vec.x;
+        y = vec.y;
 
-    mag = static_cast<float>(std::sqrt(std::pow(x, 2) + std::pow(y, 2)));
-    angle = static_cast<float>(std::atan2(y, x));
-}
+        mag = static_cast<float>(std::sqrt(x * x + y * y));
+        angle = static_cast<float>(std::atan2(y, x));
+    }
 
-void Vector::setMag(float m)
-{
-    this->mag = m;
-    this->angle = std::atan2(y, x);
+    void Vector::setMag(float m)
+    {
+        this->mag = m;
+        this->angle = std::atan2(y, x);
 
-    x = mag * std::cos(angle);
-    y = mag * std::sin(angle);
-}
+        x = mag * std::cos(angle);
+        y = mag * std::sin(angle);
+    }
 
-void Vector::setAngle(float alpha)
-{
-    this->angle = alpha;
+    void Vector::setAngle(float alpha)
+    {
+        this->angle = alpha;
 
-    x = mag * std::cos(angle);
-    y = mag * std::sin(angle);
-}
+        x = mag * std::cos(angle);
+        y = mag * std::sin(angle);
+    }
 
-void Vector::normalize()
-{
-    mag = 1;
+    void Vector::normalize()
+    {
+        mag = 1;
 
-    x = std::cos(angle);
-    y = std::sin(angle);
-}
+        x = std::cos(angle);
+        y = std::sin(angle);
+    }
 
-void Vector::normalize(Vector& vec)
-{
-    vec.mag = 1;
+    void Vector::normalize(Vector& vec)
+    {
+        vec.mag = 1;
 
-    vec.x = std::cos(vec.angle);
-    vec.y = std::sin(vec.angle);
-}
+        vec.x = std::cos(vec.angle);
+        vec.y = std::sin(vec.angle);
+    }
 
-float Vector::getMag() const
-{
-    return static_cast<float>(std::sqrt(std::pow(x, 2) + std::pow(y, 2)));
-}
+    float Vector::getMag() const
+    {
+        return static_cast<float>(std::sqrt(x * x + y * y));
+    }
 
-float Vector::getMag(Vector& vec)
-{
-    return static_cast<float>(std::sqrt(std::pow(vec.x, 2) + std::pow(vec.y, 2)));
-}
+    float Vector::getMag(Vector& vec)
+    {
+        return static_cast<float>(std::sqrt(vec.x * vec.x + vec.y * vec.y));
+    }
 
-float Vector::getAngle() const
-{
-    return std::atan2(y, x);;
-}
+    float Vector::getAngle() const
+    {
+        return std::atan2(y, x);;
+    }
 
-float Vector::getAngle(Vector& vec)
-{
-    return std::atan2(vec.y, vec.x);
-}
+    float Vector::getAngle(Vector& vec)
+    {
+        return std::atan2(vec.y, vec.x);
+    }
 
-std::ostream& operator<<(std::ostream& out, const Vector& vec)
-{
-    return out << "(" << vec.x << ", " << vec.y << ")";
+    float Vector::dot(Vector& v2)
+    {
+        return x * v2.x + y * v2.y;
+    }
+
+    float Vector::dot(Vector& v1, Vector& v2)
+    {
+        return v1.x * v2.x + v1.y * v2.y;
+    }
+
+    // ---------- OPERATOR OVERLOADS ---------- //
+    
+    Vector& Vector::operator=(Vector rhs)
+    {
+        std::swap(x, rhs.x);
+        std::swap(y, rhs.y);
+        std::swap(mag, rhs.mag);
+        std::swap(angle, rhs.angle);
+
+        return *this;
+    }
+
+    Vector& Vector::operator+=(const Vector& rhs)
+    {
+        x += rhs.x;
+        y += rhs.y;
+
+        mag = static_cast<float>(std::sqrt(x * x + y * y));
+        angle = static_cast<float>(std::atan2(y, x));
+
+        return *this;
+    }
+
+    Vector& Vector::operator-=(const Vector& rhs)
+    {
+        x -= rhs.x;
+        y -= rhs.y;
+
+        mag = static_cast<float>(std::sqrt(x * x + y * y));
+        angle = static_cast<float>(std::atan2(y, x));
+
+        return *this;
+    }
+
+    Vector& Vector::operator*=(float scalar)
+    {
+        x *= scalar;
+        y *= scalar;
+
+        mag = static_cast<float>(std::sqrt(x * x + y * y));
+        angle = static_cast<float>(std::atan2(y, x));
+
+        return *this;
+    }
 }

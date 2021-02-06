@@ -23,7 +23,7 @@ class TestSim: public psf::Simulation
             drawer.drawRectangle(-5, 5, -100, 100);
             drawer.drawRectangle(-5, -5, -100, -100);
             
-            drawer.drawCircle(0, 0, 50);
+            drawer.drawCircle(0, 0, 50, sf::Color::Red);
         }
 };
 

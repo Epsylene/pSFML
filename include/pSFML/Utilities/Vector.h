@@ -104,7 +104,8 @@ namespace psf
             /// @return The dot product scalar result
             static float dot(Vector& v1, Vector& v2);
 
-            Vector& operator=(Vector rhs);
+            Vector& operator=(const Vector& rhs);
+            Vector& operator=(Vector&& rhs);
             Vector& operator+=(const Vector& rhs);
             Vector& operator-=(const Vector& rhs);
             Vector& operator*=(float scalar);

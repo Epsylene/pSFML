@@ -104,23 +104,28 @@ namespace psf
 
     // ---------- OPERATOR OVERLOADS ---------- //
     
-    Vector& Vector::operator=(Vector rhs)
+    Vector& Vector::operator=(const Vector& rhs)
     {
-        std::swap(x, rhs.x);
-        std::swap(y, rhs.y);
-        std::swap(mag, rhs.mag);
-        std::swap(angle, rhs.angle);
+        if(*this != rhs)
+        {
+            x = rhs.x;
+            y = rhs.y;
+            mag = rhs.mag;
+            angle = rhs.angle;
+        }
 
         return *this;
     }
 
-    Vector& Vector::operator+=(const Vector& rhs)
+    Vector& Vector::operator=(Vector&& rhs)
     {
-        x += rhs.x;
-        y += rhs.y;
-
-        mag = static_cast<float>(std::sqrt(x * x + y * y));
-        angle = static_cast<float>(std::atan2(y, x));
+        if(*this != rhs)
+        {
+            x = rhs.x;
+            y = rhs.y;
+            mag = rhs.mag;
+            angle = rhs.angle;
+        }
 
         return *this;
     }

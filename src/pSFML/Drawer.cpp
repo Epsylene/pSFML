@@ -10,41 +10,41 @@ namespace psf
     Drawer::~Drawer()
     {}
 
-    void Drawer::drawRectangle(float posX, float posY, float width, float height)
+    void Drawer::drawRectangle(float posX, float posY, float width, float height, const sf::Color& color)
     {
         sf::RectangleShape r {{width, -height}};
         Vector realPos = computePos(posX, posY);
         r.setPosition(realPos.x, realPos.y);
-        r.setFillColor(sf::Color::Black);
+        r.setFillColor(color);
         simWindow.draw(r);
     }
 
-    void Drawer::drawRectangle(Vector& pos, float width, float height)
+    void Drawer::drawRectangle(Vector& pos, float width, float height, const sf::Color& color)
     {
         drawRectangle(pos.x, pos.y, width, height);
     }
 
-    void Drawer::drawSquare(float posX, float posY, float side)
+    void Drawer::drawSquare(float posX, float posY, float side, const sf::Color& color)
     {
         drawRectangle(posX, posY, side, side);
     }
 
-    void Drawer::drawSquare(Vector& pos, float side)
+    void Drawer::drawSquare(Vector& pos, float side, const sf::Color& color)
     {
         drawSquare(pos.x, pos.y, side);
     }
 
-    void Drawer::drawCircle(float posX, float posY, float radius)
+    void Drawer::drawCircle(float posX, float posY, float radius, const sf::Color& color)
     {
         sf::CircleShape c {radius};
         Vector realPos = computePos(posX, posY);
         c.setOrigin(radius, radius);
         c.setPosition(realPos.x, realPos.y);
-        c.setFillColor(sf::Color::Black);
+        c.setFillColor(color);
         simWindow.draw(c);
     }
 
-    void Drawer::drawCircle(Vector& pos, float radius)
+    void Drawer::drawCircle(Vector& pos, float radius, const sf::Color& color)
     {
         drawCircle(pos.x, pos.y, radius);
     }

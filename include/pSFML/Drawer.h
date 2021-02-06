@@ -46,6 +46,7 @@ namespace psf
             /// @param simWindowWidth Simulation window width
             /// @param simWindowHeight Simulation window height
             /// @param simWindowTitle Simulation window title
+            /// @param color Rectangle color
             Drawer(unsigned int simWindowWidth, unsigned int simWindowHeight, const char* simWindowTitle);
             virtual ~Drawer();
 
@@ -58,7 +59,8 @@ namespace psf
             /// @param posY Y position of the upper-right corner
             /// @param width Rectangle width
             /// @param height Rectangle height
-            void drawRectangle(float posX, float posY, float width, float height);
+            /// @param color Rectangle color
+            void drawRectangle(float posX, float posY, float width, float height, const sf::Color& color = sf::Color::Black);
 
             ////////////////////////////////////////////////////////////////////
             /// @brief Rectangle draw function
@@ -68,22 +70,25 @@ namespace psf
             /// @param pos Position of the upper-right corner 
             /// @param width Rectangle width
             /// @param height Rectangle height
-            void drawRectangle(Vector& pos, float width, float height);
+            /// @param color Rectangle color
+            void drawRectangle(Vector& pos, float width, float height, const sf::Color& color = sf::Color::Black);
 
             ////////////////////////////////////////////////////
             /// @brief Square draw function
             /// 
             /// @param posX X position of the upper-right corner
             /// @param posY Y position of the upper-right corner
-            /// @param side Side of the square
-            void drawSquare(float posX, float posY, float side);
+            /// @param side Size of the square's side
+            /// @param color Square color
+            void drawSquare(float posX, float posY, float side, const sf::Color& color = sf::Color::Black);
 
             /////////////////////////////////////////////////
             /// @brief Square draw function
             /// 
             /// @param pos Position of the upper-right corner
-            /// @param side Side of the square
-            void drawSquare(Vector& pos, float side);
+            /// @param side Size of the square's side
+            /// @param color Square color
+            void drawSquare(Vector& pos, float side, const sf::Color& color = sf::Color::Black);
 
             ///////////////////////////////////////////////
             /// @brief Circle draw function
@@ -91,13 +96,15 @@ namespace psf
             /// @param posX X position of the circle center
             /// @param posY Y position of the circle center
             /// @param radius Circle radius
-            void drawCircle(float posX, float posY, float radius);
+            /// @param color Circle color
+            void drawCircle(float posX, float posY, float radius, const sf::Color& color = sf::Color::Black);
 
             ////////////////////////////////////////////
             /// @brief Circle draw function
             /// 
             /// @param pos Position of the circle center
             /// @param radius Circle radius
-            void drawCircle(Vector& pos, float radius);
+            /// @param color Circle color
+            void drawCircle(Vector& pos, float radius, const sf::Color& color = sf::Color::Black);
     };
 }
